@@ -5,7 +5,7 @@ The twitter sample with [Nest](https://github.com/nestjs/nest) framework TypeScr
 ## Installation
 
 ```bash
-$ npm install
+$ yarn
 ```
 
 ## Running the app
