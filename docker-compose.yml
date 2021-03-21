@@ -1,0 +1,11 @@
+# docker-compose.yml
+
+version: '3'
+services:
+  api:
+    image: tweet:snapshot
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=dev
+

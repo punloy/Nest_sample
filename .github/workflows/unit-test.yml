@@ -15,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      firmwarerelease:
+      tweet:
         image: postgres:11.8
         env:
-          POSTGRES_DB: firmwarerelease
+          POSTGRES_DB: tweet
           POSTGRES_USER: user
           POSTGRES_PASSWORD: password
         ports:
