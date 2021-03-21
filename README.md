@@ -1,8 +1,8 @@
-# Twitter sample
+# Tweet sample
 ## Description
-The twitter sample with [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+The tweet sample with [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+## Install dependencies
 
 ```bash
 $ yarn
