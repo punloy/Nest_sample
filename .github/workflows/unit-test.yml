@@ -1,0 +1,43 @@
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  build:
+    if: "!contains(github.event.commits[0].message, '[SKIP CI]')"
+    runs-on: ubuntu-latest
+
+    services:
+      firmwarerelease:
+        image: postgres:11.8
+        env:
+          POSTGRES_DB: firmwarerelease
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: run test
+        run: |
+          yarn
+          yarn lint
+          yarn test:all
+        env:
+          CI: true
