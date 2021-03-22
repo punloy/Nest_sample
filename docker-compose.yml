@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  tweet:
+    image: postgres:11.8
+    environment:
+      POSTGRES_DB: tweet
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432

@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
-import * as request from 'supertest';
+import request from 'supertest';
 import { AppModule } from "../../src/di/AppModule";
 
 describe('HealthController (e2e)', () => {
@@ -21,6 +21,4 @@ describe('HealthController (e2e)', () => {
             .expect(200);
         expect(JSON.parse(result.text)).toMatchSnapshot();
     });
-
-    afterEach(async () => await app.close());
 });
