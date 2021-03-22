@@ -12,6 +12,9 @@ export class User {
     @Column("character varying", { name: "user_name", nullable: false })
     name: string;
 
+    @Column("character varying", { name: "password_hash", nullable: true })
+    passwordHash: string | null;
+
     @OneToMany(() => Tweet, (tweets) => tweets.id)
     tweets: Tweet[];
 
