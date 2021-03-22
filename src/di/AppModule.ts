@@ -2,7 +2,7 @@ import { Module, } from '@nestjs/common';
 import { HealthModule } from './HealthModule';
 import config from "config";
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
-import { TweetDatabaseModule } from './TweetDatabaseModule';
+import { TweetDatabaseModule } from './tweetDatabaseModule';
 
 const tweetOption: Partial<TypeOrmModuleOptions> = config.get("tweetDB");
 
