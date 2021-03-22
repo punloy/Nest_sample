@@ -16,7 +16,7 @@ const defaultOptions: TypeOrmModuleOptions = {
     entities: Object.values(entities)
 };
 
-export class tweetDatabaseModule {
+export class TweetDatabaseModule {
     public static register(options: Partial<TypeOrmModuleOptions>): DynamicModule {
         return TypeOrmModule.forRoot(Object.assign({}, defaultOptions, options));
     }
