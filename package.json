@@ -72,7 +72,8 @@
       "src/**/*.ts"
     ],
     "coveragePathIgnorePatterns": [
-      "main.ts"
+      "main.ts",
+      "TweetTestModule.ts "
     ],
     "coverageThreshold": {
       "global": {
