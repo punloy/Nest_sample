@@ -1,9 +1,12 @@
-import { Body, Controller, HttpCode, Post } from "@nestjs/common";
+import { Body, Controller, HttpCode, Post, UseGuards } from "@nestjs/common";
 import { ApiBody, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { PassportUser } from "src/core/decorator/PassportUser";
-import { AccountInfo } from "src/core/dto/accountInfo";
+import { JwtInfo } from "src/core/dto/JwtInfo";
 import { CreateUserRequest } from "src/core/dto/request/CreateUserRequest";
+import { LoginRequest } from "src/core/dto/request/LoginRequest";
 import { GeneralResponse } from "src/core/dto/response/GeneralResponse";
+import { LoginResponse } from "src/core/dto/response/LoginResponse";
+import { LocalUserGuard } from "src/core/jwt/LocaloUserGuard";
 import { UserService } from "../service/UserService";
 
 @ApiTags("User")
@@ -17,7 +20,16 @@ export class UserController {
     @ApiBody({ type: CreateUserRequest })
     @ApiResponse({ type: GeneralResponse })
     @HttpCode(200)
-    public createUser(@PassportUser() accountInfo: AccountInfo, @Body() createUserRequest: CreateUserRequest): Promise<GeneralResponse> {
+    public createUser(@PassportUser() accountInfo: JwtInfo, @Body() createUserRequest: CreateUserRequest): Promise<GeneralResponse> {
         return this.userService.signInUser(accountInfo, createUserRequest);
+    }
+
+    @Post("login")
+    @UseGuards(LocalUserGuard)
+    @ApiBody({ type: LoginRequest })
+    @ApiResponse({ type: LoginResponse })
+    @HttpCode(200)
+    public login(@Body() loginRequest: LoginRequest): Promise<LoginResponse> {
+        return this.userService.login(loginRequest);
     }
 }
