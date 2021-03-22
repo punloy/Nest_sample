@@ -21,6 +21,4 @@ describe('HealthController (e2e)', () => {
             .expect(200);
         expect(JSON.parse(result.text)).toMatchSnapshot();
     });
-
-    afterEach(async () => await app.close());
 });

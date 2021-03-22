@@ -1,11 +1,11 @@
-# docker-compose.yml
+version: "3"
 
-version: '3'
 services:
-  api:
-    image: tweet:snapshot
-    ports:
-      - "3000:3000"
+  tweet:
+    image: postgres:11.8
     environment:
-      - NODE_ENV=dev
-
+      POSTGRES_DB: tweet
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
