@@ -2,7 +2,6 @@ import { Test } from "@nestjs/testing";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { tweet } from "../../../src/core";
 import { LocalUsertrategy } from "../../../src/core/jwt/LocalUserStrategy";
-import { encodeBase64 } from "../../../src/core/utils/encodeBase64";
 import { TweetTestModule } from "../../../src/di/TweetTestModule";
 import { AuthService } from "../../../src/service/AuthService";
 import { createTestUser } from "../../../test/helper/TestTweetData";
