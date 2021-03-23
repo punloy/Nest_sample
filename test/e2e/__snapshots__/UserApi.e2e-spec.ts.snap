@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UsersApi (e2e) /user/follow/ (POST) should 200 1`] = `
+Object {
+  "data": Object {
+    "statement": "following test user 3 now",
+  },
+  "message": "succcess",
+}
+`;
+
+exports[`UsersApi (e2e) /user/follow/ (POST) should 403 1`] = `
+Object {
+  "data": Object {},
+  "message": "follow forbidden",
+}
+`;
+
+exports[`UsersApi (e2e) /user/follow/ (POST) should 404 1`] = `
+Object {
+  "data": Object {},
+  "message": "user not found",
+}
+`;
+
+exports[`UsersApi (e2e) /user/list/ (GET) should 200 1`] = `
+Object {
+  "data": Object {
+    "follower": Array [
+      Object {
+        "name": "test user 3",
+      },
+      Object {
+        "name": "test user 3",
+      },
+    ],
+  },
+  "message": "success",
+}
+`;
+
+exports[`UsersApi (e2e) /user/login/ (POST) should 200 1`] = `
+Object {
+  "accessToken": Any<String>,
+  "expiredIn": 28800,
+  "tokenType": "Bearer",
+}
+`;
+
+exports[`UsersApi (e2e) /user/login/ (POST) should 404 1 1`] = `
+Object {
+  "data": Object {},
+  "message": "user not found",
+}
+`;
+
+exports[`UsersApi (e2e) /user/login/ (POST) should 404 2 1`] = `
+Object {
+  "data": Object {},
+  "message": "user password not correct",
+}
+`;
+
+exports[`UsersApi (e2e) /user/signin/ (POST) should 200 1`] = `
+Object {
+  "data": Object {},
+  "message": "success",
+}
+`;
+
+exports[`UsersApi (e2e) /user/signin/ (POST) should 403 1`] = `
+Object {
+  "data": Object {},
+  "message": "user account already existed",
+}
+`;

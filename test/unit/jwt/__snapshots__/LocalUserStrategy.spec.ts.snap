@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocalCustomerAccountStrategy spec should not validate if account is invalid 1`] = `"Username Or Password Is Not Correct"`;

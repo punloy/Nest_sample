@@ -5,8 +5,8 @@ import { AppModule } from './di/AppModule';
 
 function applySwagger(app: INestApplication): void {
   const options = new DocumentBuilder()
-    .setTitle("Twitter sample")
-    .setDescription("The Twitter sample API description")
+    .setTitle("Tweet sample")
+    .setDescription("The Tweet sample API description")
     .setVersion("0.1")
     .addBearerAuth()
     .build();

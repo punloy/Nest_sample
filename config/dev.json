@@ -1,0 +1,24 @@
+{
+    "tweetDB": {
+        "host": "localhost",
+        "port": 5432,
+        "username": "user",
+        "password": "password",
+        "database": "tweet",
+        "synchronize": false
+    },
+    "jwk": {
+        "p": "xyr00N0m66jY--ajkAU2QmkBYT7OFjKLqrPEbOkK9fc7lUpefh9RrVH074rUrHKZyHWUHxPYZgGEAg9-I6ny1i9u7OSpctxteSqZ0Qp0nY7bpnhKLq0uBbY5rRLA3cG7BKWBwvfcM_Cr_wGxugXdCPXMLcy1K7D6aqPJuvEANqE",
+        "kty": "RSA",
+        "alg": "RS256",
+        "q": "tSp2wU7Tqv2iy8bvL4p00C-ZLQEDJ5j37LpqO1zqC1W19lBetG6zlYDGNfGkBfEOXVwP_VVuRx4dpe-uJa5UlWd27bSvy3EDbsoA8051woLT6TxcjPNx1wgs7ZfgXJfTWliuC3cr2K5F61_P6_YnwAP3yPwEeBk6zD3_DsU03DE",
+        "d": "XywsU3abdHxE1mSFjeTnPetlysWEe_-L-WPEtWbKs85HtKPL8qSL8zKi-9KfWUX1WEWKXP163sIq7bUVB5IasMBOmRsZimbtOjh3gmt_JhGngvfqN296Hy0j1YNWXy53Cv7LX2xmoBRBNZ7K2ov9OCyfqBP0Cdvs9S1oDUEnVY4GEGealAT5_by2EQ7FBo_CZnc3EDk-2PKVo4OiKWh5gcn3fbtCZY1sbOSC6WBZeDsNdKV0H-bvfn5t22__DMpvIjNvrAwmbVKLLWeGFlcAnbmERvVg1GhSMqlY1hzAz5Fb7R5fchz7Wa6ftxrejy8MHjecf0dHiQeIkP0443oGAQ",
+        "e": "AQAB",
+        "use": "sig",
+        "kid": "db5a3894-69e8-46bc-b06c-c3ef6a3cda20",
+        "qi": "ZgHbz9h9dkyPJ6rhU-Add3owEjZ2VvKbjV_47-bnl6nW0bZDeJ5q5CG7lt6oy0F-X9UrAMK1F05vSEtq5l5NAJuwlO75CmlRSI4yPL1f8zWnlEAefYHUbriHBZbnOhmxUqNYSlVu9XlWk9X4wkn1wHESrv2rqHAEaHcD3I9bhGs",
+        "dp": "G66vylwCrdyRFCoRb9IZoY9gvrhxAorR-M71rUGS4W8UnAJzMcp-mr16ctT0DGf9UextwwgKGtt5EqQ-nwxfEUAUhd6eYrWaja3LJU_zt3aEtxWfEe_GJssWJyUlI21q5hFvAL9cnueDsHT20-k-uKEZWQBL6h-2Hp5XSqF2qyE",
+        "dq": "IeB56nXyENRy_8YIbgxnAZMVApxg2aO6ILNPMCCUx1_UseWff___ZuJ4rhesg0vrUrvnZYj3ISdZhfEG0JcDzBhX3eVexh0w9iOh_91ZGfFa7Q9Tgyv2yq4FsLwowUfGxus0SIKVWWRlQLle6RHTpw1W5Wdy8n5NR2oEat-nndE",
+        "n": "jPJoiAgvaG78S7Ke4SDnyIa9m4MQiUmxpJXRgfGYnYpjyJnKKBG3g3Q_var37e97WmfydG0mJyWSPHnA78Su1jWxHQtZFD5_hI9Eif_P-JmWUCoBX4Be3WhfHpGJS-WuDy2-VLOTYpjy-jiLZrFmIjkA7IIjYSVbojqECe8TpNflTDbnrS60cmCFM8JexpDd4p6aNZF5gg3I-RdfA2e-HzAErlk2MUCnl62gPdV5dpgI8FjNNMi5OOk_I3j2byTPBL1KEMzkdazLYLAw_jtOV68fKDP7Z6lHINiNdlNzAll3Dh7BdgE21ldZwaBRbTW9ITGk96O5t2y07r3HTbDQ0Q"
+    }
+}
