@@ -1,5 +1,5 @@
 import { Test } from "@nestjs/testing";
-import { TweetDatabaseModule } from "../src/di/tweetDatabaseModule";
+import { TweetDatabaseModule } from "../src/di/TweetDatabaseModule";
 import { TestEntitiesModule } from "./support/TestEntitiesModule";
 
 describe("initial spec", () => {

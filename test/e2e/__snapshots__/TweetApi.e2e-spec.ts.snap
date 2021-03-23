@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TweetApi (e2e) /tweet/add (POST) should 200 1`] = `
+Object {
+  "data": Object {
+    "content": "content",
+    "name": "test user 1",
+    "tittle": "tweet tittle",
+  },
+  "message": "success",
+}
+`;
+
+exports[`TweetApi (e2e) /tweet/add (POST) should 403 1 1`] = `
+Object {
+  "data": Object {},
+  "message": "tittle should not empty",
+}
+`;
+
+exports[`TweetApi (e2e) /tweet/add (POST) should 403 3 1`] = `
+Object {
+  "data": Object {},
+  "message": "content should not empty",
+}
+`;
