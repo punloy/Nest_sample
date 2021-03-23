@@ -55,6 +55,24 @@ export async function saveTweet(newTweet: Partial<tweet.Tweet>): Promise<tweet.T
 
 }
 
+export async function saveFollower(follow: Partial<tweet.Follower>): Promise<tweet.Follower> {
+    const connection = await createConnection(options);
+    const followRespository = connection.getRepository(tweet.Follower);
+
+    if (follow.id) {
+        const currenTweet = await followRespository.findOne(follow.id);
+
+        if (currenTweet) {
+            //eslint-disable-next-line no-param-reassign
+            follow = { ...currenTweet, ...tweet };
+        }
+    }
+
+    const result = await followRespository.save(follow);
+    await connection.close()
+    return result;
+}
+
 export async function createTestUser({ userId }): Promise<JwtPayload> {
 
     const user = await saveUser({
@@ -97,4 +115,32 @@ export async function createTestTweet({ tweetId, userId }): Promise<JwtTweet> {
         jti: "uuv4()"
     }
 
+}
+
+export async function createTestFollower({ userId, followId }): Promise<JwtPayload> {
+    const user = await saveUser({
+        id: userId,
+        name: `test user ${userId}`,
+        passwordHash: encodeBase64("password"),
+    });
+
+    const follow = await saveUser({
+        id: userId,
+        name: `test user ${followId}`,
+        passwordHash: encodeBase64("password"),
+    });
+
+    const following = await saveFollower({
+        id: user.id,
+        followerUserId: user.id,
+        user: follow
+    });
+
+    return {
+        id: user.id,
+        data: {
+            name: following.user.name
+        },
+        jti: "uuv4()"
+    };
 }
