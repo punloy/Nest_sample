@@ -7,6 +7,7 @@ import { TweetDatabaseModule } from './TweetDatabaseModule';
 import { HttpExceptionFilter } from '../core/filter/HttpExceptionFilter';
 import { UserModule } from './UserModule';
 import { AuthModule } from './AuthModule';
+import { TweetModule } from './TweetModule';
 
 const tweetOption: Partial<TypeOrmModuleOptions> = config.get("tweetDB");
 
@@ -14,6 +15,7 @@ const tweetOption: Partial<TypeOrmModuleOptions> = config.get("tweetDB");
   imports: [
     TweetDatabaseModule.register(tweetOption),
     UserModule,
+    TweetModule,
     AuthModule,
     HealthModule],
   providers: [

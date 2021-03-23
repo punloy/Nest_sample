@@ -25,9 +25,7 @@ export class UserService {
     constructor(
         private readonly jwtService: JwtService,
         @InjectRepository(tweet.User)
-        private readonly userRepository: Repository<tweet.User>,
-        @InjectRepository(tweet.Tweet)
-        private readonly tweetRepository: Repository<tweet.Tweet>
+        private readonly userRepository: Repository<tweet.User>
     ) { }
 
     public async signInUser({ name, password }: CreateUserRequest): Promise<GeneralResponse> {

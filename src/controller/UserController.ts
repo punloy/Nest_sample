@@ -1,10 +1,9 @@
-import { Body, Controller, HttpCode, Post, UseGuards } from "@nestjs/common";
+import { Body, Controller, HttpCode, Post } from "@nestjs/common";
 import { ApiBearerAuth, ApiBody, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { CreateUserRequest } from "../core/dto/request/CreateUserRequest";
 import { LoginRequest } from "../core/dto/request/LoginRequest";
 import { GeneralResponse } from "../core/dto/response/GeneralResponse";
 import { LoginResponse } from "../core/dto/response/LoginResponse";
-import { LocalUserGuard } from "../core/jwt/LocaloUserGuard";
 import { UserService } from "../service/UserService";
 
 @ApiTags('User')

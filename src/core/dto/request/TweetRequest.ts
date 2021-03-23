@@ -2,10 +2,10 @@ import { ApiProperty } from "@nestjs/swagger";
 import { IsDefined, IsString } from "class-validator";
 
 export class TweetRequest {
-    @ApiProperty({ description: "Tweet username" })
+    @ApiProperty({ description: "Tweet tittle" })
     @IsDefined()
     @IsString()
-    username: string;
+    tittle: string
 
     @ApiProperty({ description: "Tweet content" })
     @IsDefined()
