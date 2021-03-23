@@ -26,6 +26,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: run test
         run: |
+          docker-compoe up -d
           yarn
           yarn lint
           yarn test:all
