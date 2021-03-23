@@ -8,6 +8,12 @@ The tweet sample by [Nest](https://github.com/nestjs/nest) framework TypeScript 
 $ yarn
 ```
 
+## DB connect
+
+```bash
+$ docker0compose up -d
+```
+
 ## Running the app
 
 ```bash
