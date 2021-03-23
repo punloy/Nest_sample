@@ -1,20 +1,23 @@
 import { ForbiddenException, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { tweet } from "src/core";
+import { tweet } from "../core";
 import { v4 as uuidv4 } from "uuid";
-import { JwtInfo } from "src/core/dto/JwtInfo";
-import { JwtPayload } from "src/core/dto/JwtPayload";
-import { CreateUserRequest } from "src/core/dto/request/CreateUserRequest";
-import { LoginRequest } from "src/core/dto/request/LoginRequest";
-import { GeneralResponse } from "src/core/dto/response/GeneralResponse";
-import { LoginResponse } from "src/core/dto/response/LoginResponse";
-import { JwtExpiredTime } from "src/core/jwt/JwtConstant";
-import { encodeBase64 } from "src/core/utils/encodeBase64";
+import { JwtPayload } from "../core/dto/JwtPayload";
+import { CreateUserRequest } from "../core/dto/request/CreateUserRequest";
+import { LoginRequest } from "../core/dto/request/LoginRequest";
+import { GeneralResponse } from "../core/dto/response/GeneralResponse";
+import { LoginResponse } from "../core/dto/response/LoginResponse";
+import { JwtExpiredTime } from "../core/jwt/JwtConstant";
+import { encodeBase64 } from "../core/utils/encodeBase64";
 import { Repository } from "typeorm";
 import { JwtService } from "./JwtService";
 
 enum ForbiddenReason {
     USER_EXISTED = "user account already existed"
+}
+enum NotFoundReason {
+    USER_NOTFOUND = "user not found",
+    PWD_NOTFOUND = "user password not correct"
 }
 
 @Injectable()
@@ -27,7 +30,7 @@ export class UserService {
         private readonly tweetRepository: Repository<tweet.Tweet>
     ) { }
 
-    public async signInUser(accountInfo: JwtInfo, { name, password }: CreateUserRequest): Promise<GeneralResponse> {
+    public async signInUser({ name, password }: CreateUserRequest): Promise<GeneralResponse> {
 
         const repeat = await this.userRepository.findOne({ where: { name } });
 
@@ -46,17 +49,17 @@ export class UserService {
         }
     }
 
-    public async login(loginRequest: LoginRequest): Promise<LoginResponse> {
-        const { name, password } = loginRequest;
+    public async login({ name, password }: LoginRequest): Promise<LoginResponse> {
         const passwordHash = encodeBase64(password);
 
-        const user = await this.userRepository.findOne({
-            relations: ["role"],
-            where: {
-                name: name,
-                passwordHash: passwordHash,
-            }
-        });
+        const user = await this.userRepository.findOne({ where: { name } });
+
+        if (!user) {
+            throw new ForbiddenException(NotFoundReason.USER_NOTFOUND);
+        }
+        if (user.passwordHash != passwordHash) {
+            throw new ForbiddenException(NotFoundReason.PWD_NOTFOUND);
+        }
 
         const payload: JwtPayload = {
             id: user.id,

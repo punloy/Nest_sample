@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { LocalUsertrategy } from 'src/core/jwt/LocalUserStrategy';
+import { JwtStrategy } from '../core/jwt/JwtStrategy';
+import { LocalUsertrategy } from '../core/jwt/LocalUserStrategy';
 import { tweet } from '../core/index';
 import { AuthService } from '../service/AuthService';
 
@@ -13,7 +14,7 @@ import { AuthService } from '../service/AuthService';
     providers: [
         AuthService,
         LocalUsertrategy,
-        //JwtStrategy,
+        JwtStrategy,
     ]
 })
 export class AuthModule { }
