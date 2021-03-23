@@ -6,6 +6,7 @@ import { TweetRequest } from "../core/dto/request/TweetRequest";
 import { TweetResponse } from "../core/dto/response/TweetResponse";
 import { Repository } from "typeorm";
 import { JwtService } from "./JwtService";
+import { ListTweetsResponse } from "src/core/dto/response/ListTweetsResponse";
 
 enum ForbiddenReason {
     WRONG_TITTLE = "tittle should not empty",
@@ -46,5 +47,29 @@ export class TweetService {
                 content
             }
         }
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    public async list(userInfo: JwtInfo): Promise<ListTweetsResponse> {
+
+        const tweetList = await this.tweetRepository.find({
+            join: {
+                alias: "tweet",
+                leftJoinAndSelect: { user: "tweet.user" }
+            },
+            relations: ["user"]
+        });
+
+        const tweets = [];
+        tweetList.forEach((tweet) => {
+            tweets.push({ tittle: tweet.tittle, content: tweet.content });
+        })
+        return {
+            message: "success",
+            data: {
+                tweetList: tweets
+            }
+        }
+
     }
 }

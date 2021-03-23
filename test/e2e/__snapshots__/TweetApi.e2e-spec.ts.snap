@@ -24,3 +24,21 @@ Object {
   "message": "content should not empty",
 }
 `;
+
+exports[`TweetApi (e2e) /tweet/list (GET) should 200 1`] = `
+Object {
+  "data": Object {
+    "tweetList": Array [
+      Object {
+        "content": "content 1",
+        "tittle": "tittle 1",
+      },
+      Object {
+        "content": "content",
+        "tittle": "tweet tittle",
+      },
+    ],
+  },
+  "message": "success",
+}
+`;
